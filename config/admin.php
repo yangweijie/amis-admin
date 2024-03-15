@@ -2,26 +2,26 @@
 
 return [
     // 应用名称
-    'name'           => 'Owl Admin',
+    'name' => 'Owl Admin',
 
     // 应用 logo
-    'logo'           => '/admin-assets/logo.png',
+    'logo' => '/admin-assets/logo.png',
 
     // 默认头像
     'default_avatar' => '/admin-assets/default-avatar.png',
 
     // 应用安装目录
-    'directory'      => app_path('Admin'),
+    'directory' => app_path('Admin'),
 
     // 引导文件
-    'bootstrap'      => app_path('Admin/bootstrap.php'),
+    'bootstrap' => app_path('Admin/bootstrap.php'),
 
     // 应用路由
-    'route'          => [
-        'prefix'               => 'admin-api',
-        'domain'               => null,
-        'namespace'            => 'App\\Admin\\Controllers',
-        'middleware'           => ['admin'],
+    'route' => [
+        'prefix' => 'admin-api',
+        'domain' => null,
+        'namespace' => 'App\\Admin\\Controllers',
+        'middleware' => ['admin'],
         // 不包含额外路由, 配置后, 不会追加新增/详情/编辑页面路由
         'without_extra_routes' => [
             '/dashboard',
@@ -32,60 +32,60 @@ return [
         // 是否开启验证码
         'login_captcha' => env('ADMIN_LOGIN_CAPTCHA', true),
         // 是否开启认证
-        'enable'        => true,
+        'enable' => true,
         // 是否开启鉴权
-        'permission'    => true,
-        'guard'         => 'admin',
-        'guards'        => [
+        'permission' => true,
+        'guard' => 'admin',
+        'guards' => [
             'admin' => [
-                'driver'   => 'sanctum',
+                'driver' => 'sanctum',
                 'provider' => 'admin',
             ],
         ],
-        'providers'     => [
+        'providers' => [
             'admin' => [
                 'driver' => 'eloquent',
-                'model'  => \Slowlyo\OwlAdmin\Models\AdminUser::class,
+                'model' => \Slowlyo\OwlAdmin\Models\AdminUser::class,
             ],
         ],
-        'except'        => [
+        'except' => [
 
         ],
     ],
 
     'upload' => [
-        'disk'      => 'public',
+        'disk' => 'public',
         // 文件上传目录
         'directory' => [
             'image' => 'images',
-            'file'  => 'files',
-            'rich'  => 'rich',
+            'file' => 'files',
+            'rich' => 'rich',
         ],
     ],
 
-    'https'                                => env('ADMIN_HTTPS', false),
+    'https' => env('ADMIN_HTTPS', false),
 
     // 是否显示 [开发者工具]
-    'show_development_tools'               => env('ADMIN_SHOW_DEVELOPMENT_TOOLS', true),
+    'show_development_tools' => env('ADMIN_SHOW_DEVELOPMENT_TOOLS', true),
 
     // 是否显示 [权限] 功能中的自动生成按钮
     'show_auto_generate_permission_button' => env('ADMIN_SHOW_AUTO_GENERATE_PERMISSION_BUTTON', true),
 
     // 扩展
-    'extension'                            => [
+    'extension' => [
         'dir' => base_path('extensions'),
     ],
 
     'layout' => [
         // 浏览器标题, 功能名称使用 %title% 代替
-        'title'              => '%title% | OwlAdmin',
-        'header'             => [
+        'title' => '%title% | OwlAdmin',
+        'header' => [
             // 是否显示 [刷新] 按钮
-            'refresh'      => true,
+            'refresh' => true,
             // 是否显示 [暗色模式] 按钮
-            'dark'         => true,
+            'dark' => true,
             // 是否显示 [全屏] 按钮
-            'full_screen'  => true,
+            'full_screen' => true,
             // 是否显示 [主题配置] 按钮
             'theme_config' => true,
         ],
@@ -100,7 +100,7 @@ return [
          */
         'keep_alive_exclude' => [],
         // 底部信息
-        'footer'             => '<a href="https://github.com/slowlyo/owl-admin" target="_blank">Owl Admin</a>',
+        'footer' => '<a href="https://github.com/slowlyo/owl-admin" target="_blank">Owl Admin</a>',
     ],
 
     'database' => [
@@ -108,9 +108,9 @@ return [
     ],
 
     'models' => [
-        'admin_user'       => \Slowlyo\OwlAdmin\Models\AdminUser::class,
-        'admin_role'       => \Slowlyo\OwlAdmin\Models\AdminRole::class,
-        'admin_menu'       => \Slowlyo\OwlAdmin\Models\AdminMenu::class,
+        'admin_user' => \Slowlyo\OwlAdmin\Models\AdminUser::class,
+        'admin_role' => \Slowlyo\OwlAdmin\Models\AdminRole::class,
+        'admin_menu' => \Slowlyo\OwlAdmin\Models\AdminMenu::class,
         'admin_permission' => \Slowlyo\OwlAdmin\Models\AdminPermission::class,
     ],
 
